@@ -1,0 +1,15 @@
+(define (fringe tree)
+  (define (_fringe  tree)
+    (if (pair? tree)
+        (append (_fringe (car tree)) (_fringe (cdr tree))  )
+        (mylist tree)))
+  (_fringe tree))
+
+(define x (list (list 1 2) (list 3 4)))
+
+(define (mylist x)
+  (if (null? x)
+      '()
+      (list x)))
+(fringe x)
+(fringe (list x x))
